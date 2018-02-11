@@ -1,1 +1,4 @@
-console.log("hello world2");
+import someError from './error.js';
+
+console.log("hello world");
+someError();
