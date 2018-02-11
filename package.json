@@ -5,7 +5,10 @@
   "main": "start.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "watch": "webpack --watch --config ./web/webpack.config.js",
+    "server": "node main.js",
+    "build": "webpack --config ./web/webpack.config.js",
+    "start": "npm run watch | npm run server"
   },
   "author": "gemboj",
   "license": "ISC",
