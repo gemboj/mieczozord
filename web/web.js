@@ -89,5 +89,7 @@ module.exports = {
 				: 'port ' + addr.port;
 			debug('Listening on ' + bind);
 		}
+
+		return server;
 	}
 }
