@@ -2,15 +2,19 @@
   "name": "main",
   "version": "1.0.0",
   "description": "Mieczozord",
-  "main": "start.js",
+  "main": "dist/server/index.js",
   "scripts": {
     "webpack-watch": "webpack --watch --config ./web/webpack.config.js",
-    "webpack-build": "webpack --config ./web/webpack.config.js",
-    "typescript-compile": "tsc",
-    "typescript-clean": "rimraf dist/server dist/client",
+    "webpack-compile": "webpack --config ./web/webpack.config.js",
+    "webpack-clean": "rimraf web/public/javascripts/mieczozord.js",
+    "webpack-install": "npm run webpack-clean && npm run webpack-compile",
+    "typescript-compile-client": "tsc -p src/client",
+    "typescript-compile-server": "tsc -p src/server",
+    "typescript-compile": "npm run typescript-compile-client && npm run typescript-compile-server",
+    "typescript-clean": "rimraf dist && mkdirp dist/server dist/client",
     "typescript-install": "npm run typescript-clean && npm run typescript-compile",
     "node-start": "node dist/server/index.js",
-    "start-dev": "npm run typescript-install && npm run webpack-build && npm run node-start"
+    "start": "npm run typescript-install && npm run webpack-install && npm run node-start"
   },
   "author": "gemboj",
   "license": "ISC",
@@ -31,8 +35,8 @@
   "devDependencies": {
     "awesome-typescript-loader": "^3.5.0",
     "debug": "^2.6.9",
+    "mkdirp": "^0.5.1",
     "rimraf": "^2.6.2",
-    "ts-loader": "^4.0.0",
     "typescript": "^2.7.2",
     "webpack": "^3.11.0"
   }

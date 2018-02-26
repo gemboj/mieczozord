@@ -1,4 +1,5 @@
 Requires node.js with npm.
 
     npm install
-    npm run start-dev
+    npm run start
+    localhost:3000
