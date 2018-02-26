@@ -1,7 +1,5 @@
-import SocketIO from "./lib/socketio";
+import SocketIO from "./lib/WebSocket";
+import Web from "./lib/Web";
 
-declare let require;
-const web = require('../../web/web');
-var server = web.start();
-
-new SocketIO(server);
+let web = new Web();
+new SocketIO(web);
