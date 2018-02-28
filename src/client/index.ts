@@ -1,5 +1,3 @@
-import someError from "./error";
-import io from './lib/socket';
+import WebSocket from './lib/WebSocket';
 
-var socket = io();
-someError();
+new WebSocket();

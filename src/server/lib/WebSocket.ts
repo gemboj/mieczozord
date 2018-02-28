@@ -1,12 +1,12 @@
 import Web from "./Web";
+import * as SocketIO from 'socket.io';
 
-declare let require;
 
-export default class SocketIO{
+export default class WebSocket{
 	constructor(webServer: Web){
-		let io = require('socket.io')(webServer.server);
+		let server: SocketIO.Server = SocketIO(webServer.server);
 
-		io.on('connection', function(socket){
+		server.on('connection', function(socket){
 			console.log('a user connected');
 		});
 	}
