@@ -1,5 +1,4 @@
-declare let require;
-declare let process;
+import * as express from "express";
 
 export default class Web {
 	get server(): any {
@@ -10,11 +9,11 @@ export default class Web {
 	private debug: any = require('debug')('web:server');
 	private port: any = this.normalizePort('3000');
 	private http = require('http');
-	private express = require('express');
 
 	constructor(){
 		this.initializeApp();
-		this.initializeServer()
+		this.initializeServer();
+		//let a = NodeJS.Module;
 	}
 
 	private initializeServer() {
@@ -23,7 +22,6 @@ export default class Web {
 		/**
 		 * Create HTTP server.
 		 */
-
 		this._server = this.http.createServer(this.app);
 
 		/**
@@ -47,7 +45,7 @@ export default class Web {
 
 		var index = this.getRouter();
 
-		var app = this.express();
+		var app = express();
 
 		app.set('views', './web/views');
 		app.set('view engine', 'pug');
@@ -58,7 +56,7 @@ export default class Web {
 		app.use(bodyParser.json());
 		app.use(bodyParser.urlencoded({ extended: false }));
 		app.use(cookieParser());
-		app.use(this.express.static('./web/public'));
+		app.use(express.static('./web/public'));
 
 		app.use('/', index);
 
@@ -130,7 +128,7 @@ export default class Web {
 	}
 
 	private getRouter(): any{
-		var router = this.express.Router();
+		var router = express.Router();
 
 		/* GET home page. */
 		router.get('/', function (req, res, next) {
