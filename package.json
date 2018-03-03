@@ -8,10 +8,8 @@
     "webpack-compile": "webpack --config ./web/webpack.config.js",
     "webpack-clean": "rimraf web/public/javascripts/mieczozord.js",
     "webpack-install": "npm run webpack-clean && npm run webpack-compile",
-    "typescript-compile-client": "tsc -p src/client",
-    "typescript-compile-server": "tsc -p src/server",
-    "typescript-compile": "npm run typescript-compile-client && npm run typescript-compile-server",
-    "typescript-clean": "rimraf dist && mkdirp dist/server dist/client",
+    "typescript-compile": "tsc -p src",
+    "typescript-clean": "rimraf dist && mkdirp dist",
     "typescript-install": "npm run typescript-clean && npm run typescript-compile",
     "node-start": "node dist/server/index.js",
     "start": "npm run typescript-install && npm run webpack-install && npm run node-start"
