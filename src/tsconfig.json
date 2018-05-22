@@ -2,8 +2,13 @@
   "compilerOptions": {
     "target": "es2017",
     "module": "commonjs",
+    "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "../dist"
+    "outDir": "../dist",
+    "baseUrl": ".",
+    "paths": {
+      "network/*": ["network/*"]
+    }
   },
   "include": [
     "./**/*.ts"
